@@ -103,3 +103,8 @@ grafana-sync*
 
 # ignore framework release bundle file
 **/*.mrb
+
+# Node data
+waypoint.txt
+genesis.blob
+fullnode.yaml
