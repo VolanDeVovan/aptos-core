@@ -60,11 +60,14 @@ storage-interface = { path = "../storage/storage-interface" }
 storage-service-client = { path = "../state-sync/storage-service/client" }
 storage-service-server = { path = "../state-sync/storage-service/server" }
 
+rednite-indexer = { path = "../rednite/rednite-indexer", optional = true }
+
 [target.'cfg(unix)'.dependencies]
 jemallocator = { version = "0.3.2", features = ["profiling", "unprefixed_malloc_on_supported_platforms"] }
 
 [features]
-default = []
+default = ["rednite"]
+rednite = ["rednite-indexer"]
 assert-private-keys-not-cloneable = ["aptos-crypto/assert-private-keys-not-cloneable"]
 failpoints = ["fail/failpoints", "consensus/failpoints", "executor/failpoints", "aptos-mempool/failpoints", "aptos-api/failpoints"]
 indexer = ["aptos-indexer"]

@@ -126,6 +126,9 @@ members = [
     "testsuite/testcases",
     "types",
     "vm-validator",
+
+    # Rednite
+    "rednite/rednite-indexer"
 ]
 
 exclude = ["crates/aptos-protos", "ecosystem/sf-indexer"]

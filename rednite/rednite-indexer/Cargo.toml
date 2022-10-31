@@ -1,0 +1,22 @@
+[package]
+name = "rednite-indexer"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.57"
+tokio = { version = "1.21.0", features = ["rt-multi-thread"] }
+chrono = "0.4.22"
+futures = "0.3.21"
+
+aptos-api = { path = "../../api", package = "aptos-api" }
+aptos-api-types = { path = "../../api/types" }
+aptos-config = { path = "../../config" }
+aptos-mempool = { path = "../../mempool" }
+aptos-types = { path = "../../types" }
+aptos-vm = { path = "../../aptos-move/aptos-vm" }
+aptos-logger = { path = "../../crates/aptos-logger" }
+
+storage-interface = { path = "../../storage/storage-interface" }

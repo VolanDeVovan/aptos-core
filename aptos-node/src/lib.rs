@@ -560,7 +560,22 @@ fn bootstrap_indexer(
     }
 }
 
-#[cfg(not(feature = "indexer"))]
+#[cfg(feature = "rednite")]
+fn bootstrap_indexer(
+    node_config: &NodeConfig,
+    chain_id: ChainId,
+    aptos_db: Arc<dyn DbReader>,
+    mp_client_sender: MempoolClientSender,
+) -> Result<Option<Runtime>, anyhow::Error> {
+    use rednite_indexer::bootstrap as bootstrap_indexer_stream;
+
+    match bootstrap_indexer_stream(&node_config, chain_id, aptos_db, mp_client_sender) {
+        None => Ok(None),
+        Some(res) => res.map(Some),
+    }
+}
+
+#[cfg(not(any(feature = "indexer", feature = "rednite")))]
 fn bootstrap_indexer(
     _node_config: &NodeConfig,
     _chain_id: ChainId,
