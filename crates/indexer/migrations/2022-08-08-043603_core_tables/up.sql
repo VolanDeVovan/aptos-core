@@ -254,8 +254,9 @@ CREATE TABLE move_modules (
   inserted_at TIMESTAMP NOT NULL DEFAULT NOW(),
   -- Constraints
   PRIMARY KEY (transaction_version, write_set_change_index),
-  CONSTRAINT fk_transaction_versions FOREIGN KEY (transaction_version) REFERENCES transactions (version)
+  -- CONSTRAINT fk_transaction_versions FOREIGN KEY (transaction_version) REFERENCES transactions (version)
 );
+
 CREATE INDEX mm_addr_name_ver_index ON move_modules (address, name, transaction_version);
 CREATE INDEX mm_insat_index ON move_modules (inserted_at);
 -- move resources in write set changes
