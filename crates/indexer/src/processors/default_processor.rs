@@ -71,14 +71,14 @@ fn insert_to_db(
         .build_transaction()
         .read_write()
         .run::<_, Error, _>(|pg_conn| {
-            insert_transactions(pg_conn, &txns)?;
-            insert_user_transactions_w_sigs(pg_conn, &txn_details)?;
-            insert_block_metadata_transactions(pg_conn, &txn_details)?;
-            insert_events(pg_conn, &events)?;
-            insert_write_set_changes(pg_conn, &wscs)?;
+            // insert_transactions(pg_conn, &txns)?;
+            // insert_user_transactions_w_sigs(pg_conn, &txn_details)?;
+            // insert_block_metadata_transactions(pg_conn, &txn_details)?;
+            // insert_events(pg_conn, &events)?;
+            // insert_write_set_changes(pg_conn, &wscs)?;
             insert_move_modules(pg_conn, &wsc_details)?;
-            insert_move_resources(pg_conn, &wsc_details)?;
-            insert_table_data(pg_conn, &wsc_details)?;
+            // insert_move_resources(pg_conn, &wsc_details)?;
+            // insert_table_data(pg_conn, &wsc_details)?;
             Ok(())
         }) {
         Ok(_) => Ok(()),
@@ -92,14 +92,14 @@ fn insert_to_db(
                 let wscs = clean_data_for_db(wscs, true);
                 let wsc_details = clean_data_for_db(wsc_details, true);
 
-                insert_transactions(pg_conn, &txns)?;
-                insert_user_transactions_w_sigs(pg_conn, &txn_details)?;
-                insert_block_metadata_transactions(pg_conn, &txn_details)?;
-                insert_events(pg_conn, &events)?;
-                insert_write_set_changes(pg_conn, &wscs)?;
+                // insert_transactions(pg_conn, &txns)?;
+                // insert_user_transactions_w_sigs(pg_conn, &txn_details)?;
+                // insert_block_metadata_transactions(pg_conn, &txn_details)?;
+                // insert_events(pg_conn, &events)?;
+                // insert_write_set_changes(pg_conn, &wscs)?;
                 insert_move_modules(pg_conn, &wsc_details)?;
-                insert_move_resources(pg_conn, &wsc_details)?;
-                insert_table_data(pg_conn, &wsc_details)?;
+                // insert_move_resources(pg_conn, &wsc_details)?;
+                // insert_table_data(pg_conn, &wsc_details)?;
                 Ok(())
             }),
     }
