@@ -253,7 +253,7 @@ CREATE TABLE move_modules (
   is_deleted BOOLEAN NOT NULL,
   inserted_at TIMESTAMP NOT NULL DEFAULT NOW(),
   -- Constraints
-  PRIMARY KEY (transaction_version, write_set_change_index),
+  PRIMARY KEY (transaction_version, write_set_change_index)
   -- CONSTRAINT fk_transaction_versions FOREIGN KEY (transaction_version) REFERENCES transactions (version)
 );
 
